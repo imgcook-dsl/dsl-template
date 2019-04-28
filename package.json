@@ -1,8 +1,5 @@
 {
   "name": "imgcook-dsl-template",
-  "eslintConfig": {
-    "root": true
-  },
   "devDependencies": {
     "co": "4.x.x",
     "prettier": "^1.11.1",
@@ -14,7 +11,6 @@
     "lodash": ">=4.17.11"
   },
   "scripts": {
-    "build": "webpack",
     "test": "node ./test/index.js"
   }
 }
