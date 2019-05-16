@@ -7,7 +7,7 @@ const prettier = require('prettier');
 const { NodeVM } = require('vm2');
 const _ = require('lodash');
 const data = require('./data');
-var originData = require('./origindata');
+const originData = require('./origin-data');
 
 const vm = new NodeVM({
   console: 'inherit',
