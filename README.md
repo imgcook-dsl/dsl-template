@@ -89,7 +89,7 @@ module.exports = function(layoutData, options) {
 
 #### layoutData
 
-`layoutData` 是描述 imgcook 还原后的模块结构组成和 UI 细节的一个 JSON，默认我们会对每个 DOM 节点生成一个 JSON，最后根据布局结构将这些单独的 JSON 组装成一个大 JSON，即 `layoutData`。节点相关的字段可参考此[文档](https://yuque.antfin-inc.com/design2code/develop/base-json)。每个节点都有以下属性：
+`layoutData` 是描述 imgcook 还原后的模块结构组成和 UI 细节的一个 JSON，默认我们会对每个 DOM 节点生成一个 JSON，最后根据布局结构将这些单独的 JSON 组装成一个大 JSON，即 `layoutData`。节点相关的字段可参考此[文档](https://imgcook.taobao.org/docs?slug=module-transform-json)。每个节点都有以下属性：
 
 - id，String类型，节点 id
 - type, String类型，节点原始类型
