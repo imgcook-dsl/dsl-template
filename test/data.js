@@ -1,237 +1,433 @@
-const data = {
-  id: 'id_',
-  _jsonElementId: 'id_',
-  componentType: 'view',
-  children: [
-    {
-      componentType: 'view',
-      _jsonId: 5535506514,
-      id: 'id_5535506514',
-      _jsonElementId: 'id_5535506514',
-      title: 'View',
-      attrs: { className: 'itemTitleWrap', x: '0', y: '0' },
-      style: {
-        width: 750,
-        height: 674,
-        alignItems: 'flex-start',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(242,242,242,1)',
-        marginLeft: 0,
-        marginTop: 0
+module.exports = {
+  "componentName": "Page",
+  "id": "Block_745855",
+  "rect": {
+    "x": 0,
+    "y": 0,
+    "width": 342,
+    "height": 534
+  },
+  "smart": {},
+  "props": {
+    "style": {
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+      "alignItems": "flex-start",
+      "height": "534px"
+    },
+    "className": "box"
+  },
+  "children": [{
+    "componentName": "Div",
+    "props": {
+      "onClick": function onClick(e) {
+        console.log(e.event)
+      }
+    },
+    "children": [{
+      "componentName": "Div",
+      "id": "Block_644975",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 342,
+        "height": 342
       },
-      children: [
-        {
-          _jsonId: 6189747253,
-          _jsonElementId: 'id_6189747253',
-          attrs: { className: 'itemTitle', x: '24', y: '50' },
-          style: {
-            width: 505,
-            height: 53,
-            fontFamily: 'PingFangSC',
-            fontSize: '38',
-            color: '#383D48',
-            lineHeight: '53rem',
-            lines: 1,
-            fontWeight: 500,
-            marginLeft: 24
-          },
-          id: 'id_6189747253',
-          innerText: 'Hello, DSL Plugin Developer',
-          componentType: 'text',
-          title: 'Text',
-          leaf: true,
-          tpl: 'shop_items[0].item_title',
-          schema: [
-            {
-              schemaId: 66616,
-              parent: 'dataSource',
-              key: 'shop_items[0].item_title',
-              value: '商品标题'
-            }
-          ]
+      "smart": {},
+      "props": {
+        "style": {
+          "display": "flex",
+          "position": "relative",
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "opacity": "1.00",
+          "width": "342px",
+          "height": "342px"
         },
-        {
-          _jsonId: 2798596018,
-          _jsonElementId: 'id_2798596018',
-          attrs: { className: 'shopManjianWrap' },
-          style: {
-            width: 689,
-            height: 491,
-            backgroundImage:
-              'linear-gradient(to top right, rgba(247,214,160,1), rgba(216,177,136,1))',
-            borderRadius: 8,
-            marginLeft: 27,
-            marginTop: 30,
-            flexDirection: 'column',
-            justifyContent: 'flex-start'
+        "className": "bd"
+      },
+      "children": [{
+        "componentName": "Image",
+        "id": "Image_7",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 342,
+          "height": 342
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "position": "absolute",
+            "top": "0px",
+            "left": "0px",
+            "width": "342px",
+            "height": "342px",
+            "overflow": "hidden"
           },
-          id: 'id_2798596018',
-          componentType: 'view',
-          title: 'View',
-          children: [
-            {
-              _jsonId: 3568417879,
-              _jsonElementId: 'id_3568417879',
-              attrs: { className: 'shopManjian', x: '48', y: '162' },
-              style: {
-                width: 128,
-                height: 45,
-                fontFamily: 'PingFangSC',
-                fontSize: '32',
-                color: 'rgba(132,131,131,0.79)',
-                lineHeight: '45rem',
-                lines: 1,
-                fontWeight: 500,
-                marginLeft: 21,
-                marginTop: 29
-              },
-              id: 'id_3568417879',
-              innerText: '快速上手',
-              componentType: 'text',
-              title: 'Text',
-              leaf: true,
-              tpl: 'shop_manjian',
-              schema: [
-                {
-                  schemaId: 66616,
-                  parent: 'dataSource',
-                  key: 'shop_manjian',
-                  value: '大促满减，格式：满100减10'
-                }
-              ]
-            },
-            {
-              _jsonId: 3638853664,
-              _jsonElementId: 'id_3638853664',
-              attrs: { className: 'shopItemsItemUrlGroup' },
-              style: {
-                flexDirection: 'column',
-                marginTop: 14,
-                alignItems: 'center',
-                width: 689
-              },
-              id: 'id_3638853664',
-              componentType: 'view',
-              title: 'View',
-              children: [
-                {
-                  _jsonId: 187362658,
-                  _jsonElementId: 'id_187362658',
-                  attrs: { className: 'itemUrl', x: '49', y: '221' },
-                  style: {
-                    width: 646,
-                    height: 48,
-                    fontFamily: 'PingFangSC',
-                    fontSize: '34',
-                    color: '#FFFFFF',
-                    lineHeight: '48rem',
-                    lines: 1,
-                    fontWeight: 500
-                  },
-                  id: 'id_187362658',
-                  innerText: '如何开发一个适合自己使用的多语言插件？',
-                  componentType: 'text',
-                  title: 'Text',
-                  leaf: true,
-                  tpl: 'shop_items[0].item_url',
-                  schema: [
-                    {
-                      schemaId: 66616,
-                      parent: 'dataSource',
-                      key: 'shop_items[0].item_url',
-                      value:
-                        '商品点击链接（主要解决P4P商品的点击链接是非detail真实链接的问题）'
-                    }
-                  ]
-                }
-              ],
-              leaf: false
-            },
-            {
-              _jsonId: 7395326773,
-              _jsonElementId: 'id_7395326773',
-              attrs: { className: 'pictureGroup' },
-              style: {
-                flexDirection: 'column',
-                marginTop: 37,
-                alignItems: 'center',
-                width: 689
-              },
-              id: 'id_7395326773',
-              componentType: 'view',
-              title: 'View',
-              children: [
-                {
-                  _jsonId: 1691208347,
-                  _jsonElementId: 'id_1691208347',
-                  attrs: {
-                    className: 'picture',
-                    src:
-                      'https://gw.alicdn.com/tfs/TB1CVzieCCWBuNjy0FhXXb6EVXa-400-376.png'
-                  },
-                  style: { width: 200, height: 188 },
-                  id: 'id_1691208347',
-                  componentType: 'picture',
-                  title: 'Picture',
-                  leaf: true
-                }
-              ],
-              leaf: false
-            },
-            {
-              _jsonId: 1356317646,
-              _jsonElementId: 'id_1356317646',
-              attrs: { className: 'demoWrap' },
-              style: {
-                width: 112,
-                height: 43,
-                backgroundColor: 'rgba(237,237,232,1)',
-                borderRadius: 50,
-                marginLeft: 548,
-                flexDirection: 'column',
-                marginTop: 66,
-                alignItems: 'center',
-                justifyContent: 'flex-start'
-              },
-              id: 'id_1356317646',
-              componentType: 'view',
-              title: 'View',
-              children: [
-                {
-                  _jsonId: 4853147365,
-                  _jsonElementId: 'id_4853147365',
-                  attrs: { className: 'demo' },
-                  style: {
-                    width: 40,
-                    height: 28,
-                    fontFamily: 'PingFangSC',
-                    fontSize: '20',
-                    color: '#B38765',
-                    lineHeight: '28rem',
-                    lines: 1,
-                    fontWeight: 500,
-                    marginTop: 6
-                  },
-                  id: 'id_4853147365',
-                  innerText: '试玩',
-                  componentType: 'text',
-                  title: 'Text',
-                  leaf: true
-                }
-              ],
-              leaf: false
-            }
-          ],
-          leaf: false
+          "src": "https://img.alicdn.com/tfs/TB1bLoWoYH1gK0jSZFwXXc7aXXa-684-684.png",
+          "className": "layer"
         }
-      ],
-      leaf: false
+      }, {
+        "componentName": "Image",
+        "id": "Image_8",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 342,
+          "height": 342
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "position": "absolute",
+            "top": "0px",
+            "left": "0px",
+            "opacity": "1.00",
+            "width": "342px",
+            "height": "342px"
+          },
+          "className": "bg",
+          "src": "{{this.item.coverImage}}"
+        }
+      }, {
+        "componentName": "Div",
+        "id": "Shape_9",
+        "rect": {
+          "x": 18,
+          "y": 18,
+          "width": 122,
+          "height": 30
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "boxSizing": "border-box",
+            "display": "flex",
+            "position": "relative",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginTop": "18px",
+            "marginLeft": "18px",
+            "borderRadius": "15px",
+            "backgroundColor": "rgba(0,0,0,0.40)",
+            "paddingRight": "9px",
+            "paddingLeft": "10px",
+            "height": "30px"
+          },
+          "className": "wrap"
+        },
+        "children": [{
+          "componentName": "Image",
+          "id": "Image_11",
+          "rect": {
+            "x": 28,
+            "y": 24,
+            "width": 14,
+            "height": 18
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "opacity": "1.00",
+              "width": "14px",
+              "height": "18px"
+            },
+            "src": "https://img.alicdn.com/tfs/TB1mtZRoVT7gK0jSZFpXXaTkpXa-28-36.png",
+            "className": "riverdinwei"
+          },
+          "loop": "{{this.state.data}}"
+        }, {
+          "componentName": "Text",
+          "id": "Text_10_0",
+          "rect": {
+            "x": 46,
+            "y": 22,
+            "width": 84,
+            "height": 22
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "marginLeft": "4px",
+              "width": "84px",
+              "height": "22px",
+              "lineHeight": "22px",
+              "whiteSpace": "nowrap",
+              "color": "#ffffff",
+              "fontSize": "18px",
+              "fontWeight": 400,
+              "lines": 1
+            },
+            "text": "距离500m",
+            "className": "distance"
+          },
+          "loop": [1, 2]
+        }]
+      }]
+    }, {
+      "componentName": "Div",
+      "id": "Shape_5",
+      "rect": {
+        "x": 0,
+        "y": 342,
+        "width": 342,
+        "height": 114
+      },
+      "smart": {},
+      "props": {
+        "style": {
+          "display": "flex",
+          "alignItems": "flex-start",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "backgroundColor": "#ffffff",
+          "width": "342px",
+          "height": "114px"
+        },
+        "className": "main"
+      },
+      "children": [{
+        "componentName": "Text",
+        "id": "Text_6_0",
+        "rect": {
+          "x": 18,
+          "y": 364,
+          "width": 300,
+          "height": 88
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "marginTop": "22px",
+            "width": "300px",
+            "height": "88px",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "lineHeight": "44px",
+            "color": "#333333",
+            "fontSize": "30px",
+            "fontWeight": 400,
+            "lines": 2
+          },
+          "className": "title",
+          "text": "{{this.item.title}}"
+        }
+      }]
+    }, {
+      "componentName": "Div",
+      "id": "Shape_0",
+      "rect": {
+        "x": 0,
+        "y": 456,
+        "width": 342,
+        "height": 78
+      },
+      "smart": {},
+      "props": {
+        "style": {
+          "boxSizing": "border-box",
+          "display": "flex",
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "borderBottomLeftRadius": "12px",
+          "borderBottomRightRadius": "12px",
+          "backgroundColor": "#ffffff",
+          "paddingRight": "17px",
+          "paddingLeft": "18px",
+          "width": "342px",
+          "height": "78px",
+          "overflow": "hidden"
+        },
+        "className": "ft"
+      },
+      "children": [{
+        "componentName": "Div",
+        "id": "Block_788015",
+        "rect": {
+          "x": 18,
+          "y": 480,
+          "width": 132,
+          "height": 30
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "display": "flex",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": "30px"
+          },
+          "className": "block"
+        },
+        "children": [{
+          "componentName": "Image",
+          "id": "Image_1",
+          "rect": {
+            "x": 18,
+            "y": 480,
+            "width": 30,
+            "height": 30
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "width": "30px",
+              "height": "30px"
+            },
+            "src": "https://img.alicdn.com/tfs/TB1OvsYoW61gK0jSZFlXXXDKFXa-60-60.png",
+            "className": "xianjin"
+          }
+        }, {
+          "componentName": "Text",
+          "id": "Text_2_0",
+          "rect": {
+            "x": 54,
+            "y": 481,
+            "width": 96,
+            "height": 28
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "marginLeft": "6px",
+              "width": "96px",
+              "height": "28px",
+              "lineHeight": "28px",
+              "whiteSpace": "nowrap",
+              "color": "#666666",
+              "fontSize": "24px",
+              "fontWeight": 300,
+              "lines": 1
+            },
+            "className": "fashionHome",
+            "text": "{{this.item.user.userName}}"
+          }
+        }]
+      }, {
+        "componentName": "Div",
+        "id": "Block_615383",
+        "rect": {
+          "x": 261,
+          "y": 480,
+          "width": 63,
+          "height": 30
+        },
+        "smart": {},
+        "props": {
+          "style": {
+            "display": "flex",
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": "30px"
+          },
+          "className": "group"
+        },
+        "children": [{
+          "componentName": "Image",
+          "id": "Image_4",
+          "rect": {
+            "x": 261,
+            "y": 484,
+            "width": 22,
+            "height": 22
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "width": "22px",
+              "height": "22px"
+            },
+            "src": "https://img.alicdn.com/tfs/TB1arwYo7T2gK0jSZFkXXcIQFXa-46-44.png",
+            "className": "favorite"
+          }
+        }, {
+          "componentName": "Text",
+          "id": "Text_3_0",
+          "rect": {
+            "x": 288,
+            "y": 482,
+            "width": 36,
+            "height": 26
+          },
+          "smart": {},
+          "props": {
+            "style": {
+              "marginLeft": "5px",
+              "width": "36px",
+              "height": "26px",
+              "lineHeight": "26px",
+              "whiteSpace": "nowrap",
+              "color": "#999999",
+              "fontSize": "22px",
+              "fontWeight": 400,
+              "lines": 1
+            },
+            "className": "num",
+            "text": "{{this.item.readCount}}"
+          }
+        }],
+        "condition": "{{this.isReadCountShow(this.item.readCount)}}"
+      }]
+    }],
+    "loop": [{
+      "title": "小户型卫浴怎样才能装得高大上？",
+      "coverImage": "https://img.alicdn.com/tfs/TB1Txq6o7T2gK0jSZFkXXcIQFXa-684-684.png",
+      "readCount": 200,
+      "user": {
+        "userImage": "https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png",
+        "userName": "时尚家居"
+      },
+      "url": "https://www.imgcook.com"
+    }, {
+      "title": "拥有超多功能的40平米简约小公寓了解一下",
+      "coverImage": "https://img.alicdn.com/tfs/TB1XRQTo7P2gK0jSZPxXXacQpXa-684-648.png",
+      "readCount": 500,
+      "user": {
+        "userImage": "https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png",
+        "userName": "花花设计工作"
+      },
+      "url": "https://www.imgcook.com/docs"
+    }],
+    "loopArgs": ["item", "index"]
+  }],
+  "fileName": "index",
+  "methods": {
+    "isReadCountShow": function isReadCountShow(readCount) {
+      
+      return readCount > 300;
+    },
+    "test": () => {
+      console.log(123)
     }
-  ],
-  attrs: { className: 'itemTitleOuter', x: '0', y: '0' },
-  style: { width: '750', height: '1334' },
-  leaf: false
-};
-
-module.exports = data;
+  },
+  "lifeCycles": {
+    "componentDidUpdate": (prevProps, prevState, snapshot) => {
+      console.log('aaa')
+    }
+  },
+  "dataSource": {
+    "list": [{
+      "id": "example",
+      "isInit": true,
+      "type": "fetch",
+      "options": {
+        "method": "GET",
+        "params": {
+          "aaa": "bbb"
+        },
+        "uri": "https://jsonplaceholder.typicode.com/todos/1"
+      }
+    }],
+    "dataHandler": function dataHandler(dataMap) {
+      console.log(dataMap, 'dataMap')
+      return dataMap;
+    }
+  },
+  "state": {
+    "ccc": "ddd",
+    "data": [1, 2]
+  }
+}
