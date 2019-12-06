@@ -1,147 +1,86 @@
-function casHandler(str, value) {
-  var casArr = str.split('.');
-  var casObj = {};
+module.exports = function(schema, option) {
+  const renderData = {};
+  const style = {};
 
-  if (casArr.length == 0) {
-    casObj[str] = value;
+  function parseProps(propValue, isXML) {
+    if (/^\{\{.*\}\}$/.test(propValue)) {
+      if (isXML) {
+        return propValue.slice(2, -2);
+      } else {
+        return propValue.slice(1, -1);
+      }
+    }
+
+    if (isXML) {
+      return `'${propValue}'`;
+    } else {
+      return propValue;
+    }
   }
 
-  casArr.reverse().forEach(function(cas) {
-    if (cas.indexOf('[') == -1) {
-      casObj[cas] = value;
-    } else {
-      var newCasObj = {};
-      var key = cas.split('[')[0];
-      newCasObj[key] = [casObj];
-      casObj = newCasObj;
-    }
-  });
-  return casObj;
-}
-
-module.exports = function(layoutData, options) {
-  const renderData = {};
-  const prettier = options.prettier;
-  const _ = options._;
-  const raxImport = {};
-  const style = {};
-  let mock = {};
-
-  function json2jsx(json) {
+  function transform(json) {
     var result = '';
 
-    if (!!json.length && typeof json != 'string') {
+    if (Array.isArray(json)) {
       json.forEach(function(node) {
-        result += json2jsx(node);
+        result += transform(node);
       });
     } else if (typeof json == 'object') {
-      var type = json.componentType;
-      var className = json.attrs.className;
+      var type = json.componentName && json.componentName.toLowerCase();
+      var className = json.props && json.props.className;
+      var classString = className ? ` style={styles.${className}}` : '';
 
       switch (type) {
         case 'text':
-          var lines = json.style.lines;
-          var innerText;
-
-          if (json.tpl) {
-            innerText = `{dataSource.${json.tpl}}`;
-            mock = _.merge(mock, casHandler(json.tpl, json.innerText));
-          } else {
-            innerText = json.innerText;
-          }
-
-          result += `<Text style={styles.${className}} numberOfLines={${lines}}>${innerText}</Text>`;
-
-          if (!raxImport[type]) {
-            raxImport[type] = `import Text from 'rax-text';`;
-          }
-
-          if (json.style.lines == 1) {
-            delete json.style.width;
-            delete json.style.height;
-          }
-
-          delete json.style.fontFamily;
-          delete json.style.lines;
+          var innerText = parseProps(json.props.text);
+          result += `<span${classString}>${innerText}</span>`;
           break;
-        case 'view':
+        case 'div':
+        case 'page':
           if (json.children && json.children.length > 0) {
-            result += `<View style={styles.${className}}>${json2jsx(
-              json.children
-            )}</View>`;
+            result += `<div${classString}>${transform(json.children)}</div>`;
           } else {
-            result += `<View style={styles.${className}} />`;
-          }
-          if (!raxImport[type]) {
-            raxImport[type] = `import View from 'rax-view';`;
+            result += `<div${classString} />`;
           }
           break;
-        case 'picture':
-          var source;
-
-          if (json.tpl) {
-            source = `dataSource.${json.tpl}`;
-            mock = _.merge(mock, casHandler(json.tpl, json.attrs.src));
-          } else {
-            source = `'${json.attrs.src}'`;
-          }
-          result += `<Picture resizeMod={'contain'} style={styles.${className}} source={{uri: ${source}}} />`;
-
-          if (!raxImport[type]) {
-            raxImport[type] = `import Picture from 'rax-picture';`;
-          }
+        case 'image':
+          var source = parseProps(json.props.src, true);
+          result += `<img${classString} src={${source}}  />`;
           break;
       }
 
-      style[className] = json.style;
-    } else {
-      return json
-        .toString()
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+      if (className) {
+        style[className] = json.props.style;
+      }
     }
 
     return result;
   }
 
   // transform json
-  var jsx = `${json2jsx(layoutData)}`;
-  var dataBinding =
-    Object.keys(mock).length > 0
-      ? 'var dataSource = this.props.dataSource;'
-      : '';
+  var jsx = `${transform(schema)}`;
 
   renderData.modClass = `
-    class Mod extends Component {
-      render() {
-        ${dataBinding}
-        return (
-          ${jsx}
-        );
-      }
-    }
+class Mod extends Component {
+  render() {
+    return (
+      ${jsx}
+    );
+  }
+}
   `;
 
-  renderData.import = Object.keys(raxImport)
-    .map(key => {
-      return raxImport[key];
-    })
-    .join('\n');
-  renderData.mockData = `var mock = ${JSON.stringify(mock)}`;
   renderData.style = `var styles = ${JSON.stringify(style)}`;
-  renderData.export = `render(<Mod dataSource={mock} />);`;
+  renderData.exports = `ReactDOM.render(<Mod />, document.getElementById('container'));`;
 
   const prettierOpt = {
+    parser: 'babel',
     printWidth: 120,
     singleQuote: true
   };
 
   return {
     renderData: renderData,
-    xml: prettier.format(jsx, prettierOpt),
-    style: prettier.format(renderData.style, prettierOpt),
     prettierOpt: prettierOpt
   };
-};
+}

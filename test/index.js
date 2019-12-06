@@ -7,7 +7,6 @@ const prettier = require('prettier');
 const { NodeVM } = require('vm2');
 const _ = require('lodash');
 const data = require('./data');
-const originData = require('./origin-data');
 
 const vm = new NodeVM({
   console: 'inherit',
@@ -22,8 +21,7 @@ co(function*() {
   );
   const renderInfo = vm.run(code)(data, {
     prettier: prettier,
-    _: _,
-    originData: originData
+    _: _
   });
   const renderData = renderInfo.renderData;
   const ret = yield xtplRender(
@@ -32,9 +30,12 @@ co(function*() {
     {}
   );
 
-  console.log(
-    prettier.format(ret, {
-      printWidth: 120
-    })
-  );
+  const prettierOpt = renderInfo.prettierOpt || {
+    printWidth: 120
+  };
+
+
+  const prettierRes = prettier.format(ret, prettierOpt);
+
+  fs.writeFileSync(path.join(__dirname,'./result.js'), prettierRes);
 });

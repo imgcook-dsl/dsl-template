@@ -1,13 +1,12 @@
 'use strict';
 
-import { createElement, Component, render } from 'rax';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-{{{import}}}
+{{{utils}}}
 
 {{{style}}}
 
-{{{mockData}}}
-
 {{{modClass}}}
 
-{{{export}}}
+{{{exports}}}
