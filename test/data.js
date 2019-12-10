@@ -404,6 +404,9 @@ module.exports = {
     }
   },
   "lifeCycles": {
+    "_constructor": function constructor(props, context) {
+      console.log('super props');
+    },
     "componentDidUpdate": (prevProps, prevState, snapshot) => {
       console.log('aaa')
     }
@@ -415,10 +418,31 @@ module.exports = {
       "type": "fetch",
       "options": {
         "method": "GET",
-        "params": {
-          "aaa": "bbb"
-        },
-        "uri": "https://jsonplaceholder.typicode.com/todos/1"
+        "params": "{{this.state.params}}",
+        "uri": "{{this.state.api}}",
+        "a": {
+          "c": "d"
+        }
+      },
+      "dataHandler": function dataHandler(data, error) {
+        console.log(1 + 1, data, error)
+        return data;
+      }
+    }, {
+      "id": "example_2",
+      "isInit": "{{this.state.api}}",
+      "type": "jsonp",
+      "options": {
+        "method": "GET",
+        "params": {},
+        "uri": "https://assets.airbnb.com/frontend/search_results.js",
+        "aa": "bb",
+        "jsonpCallbackFunction": "search_results"
+      },
+      "dataHandler": function dataHandler(data, error) {
+        console.log('jsonp', data, error)
+        
+        return data;
       }
     }],
     "dataHandler": function dataHandler(dataMap) {
@@ -428,6 +452,8 @@ module.exports = {
   },
   "state": {
     "ccc": "ddd",
-    "data": [1, 2]
+    "data": [1, 2],
+    "api": "https://jsonplaceholder.typicode.com/todos/1",
+    "params": {"a": "b"}
   }
 }

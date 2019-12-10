@@ -21,7 +21,16 @@ co(function*() {
   );
   const renderInfo = vm.run(code)(data, {
     prettier: prettier,
-    _: _
+    _: _,
+    responsive: {
+      width: 750,
+      viewportWidth: 375
+    },
+    utils: {
+      print: function(value) {
+        console.log(value);
+      }
+    }
   });
   const renderData = renderInfo.renderData;
   const ret = yield xtplRender(
