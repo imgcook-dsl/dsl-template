@@ -1,12 +1,13 @@
 'use strict';
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+
+{{{imports}}}
 
 {{{utils}}}
 
 {{{style}}}
 
-{{{modClass}}}
+{{{classes}}}
 
 {{{exports}}}
