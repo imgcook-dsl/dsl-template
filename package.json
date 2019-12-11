@@ -13,7 +13,6 @@
     "xtpl": "^3.4.0"
   },
   "scripts": {
-    "test": "node ./test/index.js",
-    "mtest": "mocha test/__test__.js"
+    "test": "node ./test/index.js"
   }
 }
