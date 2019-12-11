@@ -1,8 +1,6 @@
 module.exports = function(schema, option) {
   const {prettier} = option;
 
-  console.log()
-
   // imports
   const imports = [];
 
@@ -15,6 +13,7 @@ module.exports = function(schema, option) {
   // Classes 
   const classes = [];
 
+  // 1vw = width / 100
   const _w = option.responsive.width / 100;
 
   const isExpression = (value) => {
@@ -198,6 +197,7 @@ module.exports = function(schema, option) {
     })`;
   }
 
+  // generate render xml
   const generateRender = (schema) => {
     const type = schema.componentName.toLowerCase();
     const className = schema.props && schema.props.className;
@@ -250,6 +250,7 @@ module.exports = function(schema, option) {
     return xml;
   }
 
+  // parse schema
   const transform = (schema) => {
     let result = '';
 
