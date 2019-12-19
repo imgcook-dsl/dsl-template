@@ -170,18 +170,11 @@ DSL 提审、更新和发布流程如下：
 
 ## 官方 DSL 示例
 
-### H5 标准开发规范
+### React D2C Schema
 
-DSL 代码仓库：[https://github.com/imgcook-dsl/h5-standard](https://github.com/imgcook-dsl/h5-standard)
-
-预览效果：
-
-![](https://img.alicdn.com/tfs/TB1P2HGo5_1gK0jSZFqXXcpaXXa-1500-879.png)
-
-### 微信小程序开发规范
-
-DSL 代码仓库：[https://github.com/imgcook-dsl/wx-miniapp-template](https://github.com/imgcook-dsl/wx-miniapp-template)
+DSL 代码仓库：https://github.com/imgcook-dsl/react-standard
 
 预览效果：
 
-![](https://img.alicdn.com/tfs/TB1ZEy5oV67gK0jSZPfXXahhFXa-1500-876.png)
+![](https://gw.alicdn.com/tfs/TB1ZDQUq8r0gK0jSZFnXXbRRXXa-1492-819.png)
+
