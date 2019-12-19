@@ -307,7 +307,7 @@ module.exports = function(schema, option) {
             const { params, content } = parseFunction(schema.lifeCycles[name]);
 
             if (name === '_constructor') {
-              lifeCycles.push(`constructor(${params}) { ${content} ${init.join('\n')}}`);
+              lifeCycles.push(`constructor(${params}) { super(); ${content} ${init.join('\n')}}`);
             } else {
               lifeCycles.push(`${name}(${params}) {${content}}`);
             }

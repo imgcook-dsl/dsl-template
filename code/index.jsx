@@ -30,6 +30,7 @@ class Page_0 extends Component {
     ]
   };
   constructor(props, context) {
+    super();
     console.log('super props');
     this.fetch_example();
     this.jsonp_example();
