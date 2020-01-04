@@ -228,7 +228,6 @@ module.exports = function(schema, option) {
       case 'div':
       case 'page':
       case 'block':
-      case 'component':
         if (schema.children && schema.children.length) {
           xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
         } else {
@@ -261,7 +260,7 @@ module.exports = function(schema, option) {
     } else {
       const type = schema.componentName.toLowerCase();
 
-      if (['page', 'block', 'component'].indexOf(type) !== -1) {
+      if (['page', 'block'].indexOf(type) !== -1) {
         // 容器组件处理: state/method/dataSource/lifeCycle/render
         const states = [];
         const lifeCycles = [];
